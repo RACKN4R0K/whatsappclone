@@ -1,9 +1,25 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import chatlistitem from "./component/chatlistitem.js"
+import Chatlistitem from "./component/ChatList/chatlistitem";
+import ChatIntro from "./component/ChatIntro/ChatIntro";
+import ChatWindow from "./component/ChatWindow/chatWindow";
 
 function App() {
-  const [chatlist, setChatlist] = useState([{}, {}, {}, {}]);
+  const [chatlist, setChatlist] = useState([
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+  ]);
+  const [activeChat, setActiveChat] = useState({});
   return (
     <div className="app-window">
       <div className="sidebar">
@@ -73,11 +89,14 @@ function App() {
         </div>
         <div className="chatlist">
           {chatlist.map((item, key) => (
-            <chatlistitem key={key}/>
+            <Chatlistitem key={key} />
           ))}
         </div>
       </div>
-      <div className="contentarea"></div>
+      <div className="contentarea">
+        {activeChat.chatid !== undefined && <ChatWindow />}
+        {activeChat.chatid === undefined && <ChatIntro />}
+      </div>
     </div>
   );
 }
