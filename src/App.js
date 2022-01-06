@@ -6,19 +6,11 @@ import ChatWindow from "./component/ChatWindow/chatWindow";
 
 function App() {
   const [chatlist, setChatlist] = useState([
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-  ]);
+    { chatid: 1, title: 'Fulano de Tal', Image: 'https://www.w3schools.com/howto/img_avatar2.png' },
+    { chatid: 2, title: 'Fulano de Tal', Image: 'https://www.w3schools.com/howto/img_avatar2.png' },
+    { chatid: 3, title: 'Fulano de Tal', Image: 'https://www.w3schools.com/howto/img_avatar2.png' },
+    { chatid: 4, title: 'Fulano de Tal', Image: 'https://www.w3schools.com/howto/img_avatar2.png' },
+  ])
   const [activeChat, setActiveChat] = useState({});
   return (
     <div className="app-window">
@@ -89,7 +81,12 @@ function App() {
         </div>
         <div className="chatlist">
           {chatlist.map((item, key) => (
-            <Chatlistitem key={key} />
+            <Chatlistitem key={key}
+              data={item}
+              active={activeChat.chatid === chatlist[key].chatid}
+              onclick={() => setActiveChat(chatlist[key])}
+
+            />
           ))}
         </div>
       </div>

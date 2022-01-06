@@ -1,17 +1,17 @@
 import React from "react";
 import "./chatlistitem.css";
 
-function chatlistitem() {
+function chatlistitem({onclick, active, data}) {
   return (
-    <div className="chatlistitem">
+    <div className={`chatlistitem ${active?'active':''}`} onClick={onclick}>
       <img
         className="chatlistitem-avatar"
-        src="https://www.w3schools.com/howto/img_avatar2.png"
+        src={data.Image}
         alt=""
       ></img>
       <div className="chatlistitem-lines">
         <div className="chatlistitem-line">
-          <div className="chatlistitem-name">Henrique</div>
+          <div className="chatlistitem-name">{data.title}</div>
           <div className="chatlistitem-date">19:00</div>
         </div>
         <div className="chatlistitem-line">

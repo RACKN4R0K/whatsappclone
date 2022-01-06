@@ -13,6 +13,10 @@ body{
   background-color: var(--color-body);
   font-family: 'Segoe UI', helvetica nueu, helvetica, lucida Grande, arial;
 }
+svg{
+  color: #919191;
+}
+
 .app-window{
   display: flex;
   height: 100vh;
